@@ -3,33 +3,26 @@
 
 HimalViewer
 
-The web app will  use the open source programs CesiumJS and Nodejs server.
+The web app will  use Javascript , the open source programs CesiumJS and Nodejs server.
 
-HimalViewer will help mountaineering and trekking society to create archives of mountaineering in  Himalaya - and any other mountain region of the Earth, and perhaps in future  also mountain ranges of the planets, which have  a Digital Planet Model and climbing history.  CesiumJS suports Digital Earth Model delivered by Google Earth or by Bing API, but also it allows to load other DEM models.
+HimalViewer will help mountaineering and trekking societies to create archives of mountaineering in  any   mountain region on Earth, but the task starts in Western Himalasya , which is a relatively unexplored and poorly described region between Kashmir and Tibet, moreover with poor cartographic sources.  The program will use the open source CesiumJS, which  supports Digital Earth Model delivered by Google Earth and by Bing API,  and many other DEM models.
 
-HimalViewer will suport GEOREFERENCING which means:
+Target group :   local population inhabiting mountain areas, mountain guides,  trekkers,  mountaineers,  archives of high-mountain clubs and high-mountain magazines, and geographers and ethnographers in research of mountain regions without sufficient topographic maps.
 
-If you know a place on the map or geo-location  ( latitude and longitude , opotionally altitude ) the viewer will create   360 degrees  view  from that place . The view is virtually created from the DEM.
+ Main features:
+ -  3D visualization of the terrain
+ -  Geo referencing
+ -  Reverse referencing of mountain photographs ( also historical ones )
+ -  Search capabilities - alphabetical,  GPS ,  topographical ordering  along valleys and ridges
+ -  Database  of mountaineering achievements, with personal index of ascents.
+ -  Possibility to add ( crowd-sourcing ) names to the topographic objects , climbing routes and descriptions of ascents in the mountaineering layer 
+ -  Possibility to add ( crowd-sourcing ) landmarks and descriptions of trails to the the cultural layer , in the format of KML/KMZ files.
 
-HimalViewer will suport REVERSE PHOTO-REFERENCING , which means :  
+DETAILS OF FEATURES :
+HimalViewer will offer consistent ordering and a search engine for all mountain features in a linear order - in particular: each summit, mountain pass, valley, and mountain face. The feature will have well-defined index from the mathematical concept of a node in the graph. In fact we shall consider two graphs - the  graph of valleys and the graph of mountain ridges. The ordering is well-know concept in hydrology (see Horton-Strahler in:  http://hydrology.usu.edu/dtarb/hp91.pdf) but it seems that it has not been used to create an upside-down model of mountain ridges. If we change in the elevation model all elevations from positive to negative with the same absolute value - we notice that all ridges become "rivers", but many of them will flow to "pits" which in the positive mode are summits of mountains. The main problem will be here to decide which pits should be removed (as not autonomous = not important ), and which should remain in the graph - for instance the deepest pit which is Mt. Everest. The problem can be illustrated by the smaller southern summit of Mt Everest . Nobody consider it as an autonomous peak - as it might be identified as the second highest peak in the world instead of K2 in Karakorum. Therefore some rules must be used to remove "non-autonomous"  peaks from the graph and from the database, and also to leave only the deepest pass between two consecutive peaks in the ridge.
 
-For a mountain panorama ( in the form of JPG , PNG etc.)   where you recognise some  named peaks  or landmarks with known geographic coordinates - the viewer will help to find a place where the camera was situated and oriented.  After that the virtual view ( see: GEOREFERENCING )  will show a similar virtual panorama with labels , showing all the  place-names which are in the database.
+Some mathematical ( and heuristic ) criteria for an "autonomous summit" are introduced by the UIAA  ( International Union of Alpinist Associations ) - http://www.theuiaa.org/mountaineering/mountain-classification/ and of course only mathematical rules for topographic features can be used here , as all other (historical etc.)  are subjective and cannot be computed from the DEM., Using the mathematical rules the program will add automatically  to the graph  all  "autonomous" summits and passes, without paying attention if they are named or unnamed, climbed or unclimbed - so the outsourcing in their case will help to connect the summits ( and the passes ) with their names and mountasineering records.
 
- Himal Viewer will be interractive, alowing the admin to  add names of topographic features  and names  landmarks , and in case of  summits, passes and mountain faces - date of  first ( and other ) ascents , and names of summiters.. The search will allow to find in the records a place-name or summiter's name.
- 
-The diference with other GIS apps ,  Google Earth or Bing :
+Collecting the names from  mountaineering archives I will try to consider  also traditional names  ( alias ) in local languages and dialects,  in the crowd-sourcing in social media popular in native communities .It will be possible to add local names in non-European characters used by Hindi , Urdu , Nepali and Tibetan – and convert them by using standard romanisation ( transliteration ) , what can be useful for ethnographers and library catalog search.
 
-1 HimalViewer will offer consistent ordering and search engine for all mountain  features in a linear order - in particular: each summit  , mountain pass, valley , mountain face. The feature will have well-defined index from the mathematic concept of a node in the graph. In fact we shall consider two graphs -  the hydrological graph and the graph of mountain ridges. 
-Practically it will allow to generate  automatically ( without user or admin input, but with a filter, cutting off some less important nodes ):
-
-1. all valleys in a neighbourhood of a mountain
-2. all mountains in the surrounding of a valley, and their mountai faces in the order - from your left to  your right ( looking up )
-
-UNCLIMBED MOUNTAINS
-For any geo-location - it will be easy to display all named and  unnamed  ( but important ) topographic objects.
-Of course "importance" must be classified mathematically   as many secondary nodes must be cut off and not added to database.   The topographic criteria for valleys and rivers are to some extend defined in methods of computational hydrology , but for ridges, mountains and passes the hydrological rules have limited value ( only in case of cutting  off secondary ridges similar with secondary tributaries of rivers ),
-
-For mountain summits  and passes  there is necessary to define other rules deducted from the international classificator of mountains
-  http://www.theuiaa.org/mountaineering/mountain-classification/ .  
-In this clasification  there are  two variables of "autonomy criterium " - minimal path distance dX  ( let us say 1000 meters ) , and minimal altitude difference  dY = 30 meters   , and consecutive passes or summits in the ridge  with smaller distance and altitude  difference are ignored.
-It is obvious that for bigger dX and bigger dY the selection  will  choose less peaks and passes - so they can be considered  more "important"  This way we can add to the database many "important" summits, which are unnamed and unclimbed, but this makes them interesting for some climbers.
+The Cesium logo will be included  with the link https://cesiumjs.org into the program , according with their wish expressed in their Apache 2 license, and similar information about all other open sources and theoretical methods used in the project.
